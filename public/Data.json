@@ -118,35 +118,6 @@
     "rating": 4.9,
     "difficulty": "Intermediate",
     "badge": "Containers"
-  },
-  {
-    "id": "git",
-    "name": "Git",
-    "category": "Tools",
-    "description": "A distributed version control system for tracking changes and collaborating on projects.",
-    "icon": "https://icon.icepanel.io/Technology/svg/Git.svg",
-    "rating": 4.9,
-    "difficulty": "Beginner-Friendly",
-    "badge": "Essential"
-  },
-  {
-    "id": "github",
-    "name": "GitHub",
-    "category": "Tools",
-    "description": "A development platform for hosting code, collaboration, version control, and automation.",
-    "icon": "https://icon.icepanel.io/Technology/svg/Github.svg",
-    "rating": 4.9,
-    "difficulty": "Beginner-Friendly",
-    "badge": "Popular"
-  },
-  {
-    "id": "express",
-    "name": "Express.js",
-    "category": "Backend",
-    "description": "A fast and minimalist web framework for building APIs and server-side applications.",
-    "icon": "https://icon.icepanel.io/Technology/svg/Express.svg",
-    "rating": 4.7,
-    "difficulty": "Intermediate",
-    "badge": "Minimal"
   }
+  
 ]

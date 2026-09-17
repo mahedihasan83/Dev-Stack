@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Banner from "./components/Banner";
 import Nav from "./components/Nav"
 import Technologies from "./components/Technologies";
@@ -11,7 +12,9 @@ function App() {
     <>
       <Nav/>
       <Banner/>
-      <Technologies/>
+      <Suspense fallback={<div>Loading....</div> }>
+        <Technologies/>
+      </Suspense>
     </>
   )
 }
