@@ -1,19 +1,18 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import type { Technology } from "../types/Technology";
 import { toast } from "react-toastify";
 import TechnologyCard from "./TechnologyCard";
 import YourStack from "./YourStack";
 
-const technologyFetch = async (): Promise<Technology[]> => {
-  const res = await fetch("/Data.json");
-  const data = await res.json();
-  return data;
-};
-
 const Technologies = () => {
-  const [technologiesPromise] = useState(() => technologyFetch());
-  const technologies = use(technologiesPromise);
+  const [technologies, setTechnologies] = useState<Technology[]>([]);
   const [stack, setStack] = useState<Technology[]>([]);
+
+  useEffect(() => {
+    fetch("./Data.json")
+      .then((res) => res.json())
+      .then((data) => setTechnologies(data));
+  }, []);
 
   const handleAdd = (technology: Technology) => {
     const alreadyAdded = stack.some((item) => item.id === technology.id);
@@ -49,38 +48,30 @@ const Technologies = () => {
             Technologies
           </span>
         </h2>
-        <p className="text-sm text-gray-500 mt-1">Pick one technology per category to build your ideal stack.</p>
+        <p className="text-sm text-gray-500 mt-1">
+          Pick one technology per category to build your ideal stack.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-
         <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-
-            {technologies.map((technology)=>(
-                <TechnologyCard
-                key={technology.id}
-                technology ={technology}
-                onAdd = {handleAdd}
-                isAdded = {stack.some(
-                    (item)=> item.id === technology.id
-                )}
-                />
-            )
-            )
-
-            }
-
+          {technologies.map((technology) => (
+            <TechnologyCard
+              key={technology.id}
+              technology={technology}
+              onAdd={handleAdd}
+              isAdded={stack.some((item) => item.id === technology.id)}
+            />
+          ))}
         </div>
 
         <div className="lg:col-span-1">
-            <YourStack
-            stack = {stack}
-            onRemove = {handleRemove}
-            onRemoveAll = {handleRemoveAll}
-            />
-
+          <YourStack
+            stack={stack}
+            onRemove={handleRemove}
+            onRemoveAll={handleRemoveAll}
+          />
         </div>
-
       </div>
     </section>
   );

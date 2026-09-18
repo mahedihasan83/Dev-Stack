@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Banner from "./components/Banner";
 import Nav from "./components/Nav"
 import Technologies from "./components/Technologies";
+import Footer from "./components/Footer";
 
 
 
@@ -12,9 +13,9 @@ function App() {
     <>
       <Nav/>
       <Banner/>
-      <Suspense fallback={<div>Loading....</div> }>
-        <Technologies/>
-      </Suspense>
+      <Technologies/>
+      <Footer/>
+      
     </>
   )
 }
