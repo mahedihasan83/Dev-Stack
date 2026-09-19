@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import Banner from "./components/Banner";
 import Nav from "./components/Nav"
 import Technologies from "./components/Technologies";
